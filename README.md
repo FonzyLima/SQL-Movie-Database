@@ -2,10 +2,11 @@
 
 ## Installation
 ### Backend
-Use npm i to install packages<br>
-Packages to be installed:
+<p>Use npm i to install packages<br>
+Packages to be installed:</p>
 <ul>
     <li>express</li>
     <li>mysql</li>
 </ul>
+
 ### Frontend
