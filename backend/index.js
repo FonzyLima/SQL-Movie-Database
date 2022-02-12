@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 
 const app = express();
-const db = mysql.createConnection({
+const db = mysql.createPool({
     host: process.env.HOSTNAME,
     user: process.env.USER,
     password: process.env.PASSWORD,
