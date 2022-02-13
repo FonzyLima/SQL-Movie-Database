@@ -1,9 +1,11 @@
+import '../styles/crud.css'
+
 import React, {Fragment} from 'react';
 
 const Create = () => {
     return (
         <Fragment>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target={`#create`}>Create</button>
+            <button type="button" id="createbutton" class="btnproper" data-toggle="modal" data-target={`#create`}>Create</button>
             <div id='create' class="modal fade" role="dialog">
                 <div class="modal-dialog">
                 <div class="modal-content">

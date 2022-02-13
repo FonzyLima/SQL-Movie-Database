@@ -69,8 +69,8 @@ function App() {
                 <td>{item.name}</td>
                 <td>{item.year}</td>
                 <td>{item.rank}</td>
-                <Update/>
-                <Delete/>
+                <td><Update/></td>
+                <td> <Delete/></td>
               </tr>
             ))}
             {/* <tr>
