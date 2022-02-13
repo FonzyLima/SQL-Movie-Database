@@ -41,17 +41,17 @@ function App() {
       <div className="body">
         <table
           id="dtBasicExample"
-          className="table table-striped table-bordered table-sm tableproper"
-          cellpadding="10px"
+          className="tableproper"
+          // cellpadding="10px"
           // cellspacing="0"
           // width="100%"
         >
           <thead>
             <tr>
-              <th className="th-sm">ID</th>
-              <th className="th-sm">Name</th>
-              <th className="th-sm">Year</th>
-              <th className="th-sm">Rank</th>
+              <th className="tablecell">ID</th>
+              <th className="tablecell">Name</th>
+              <th className="tablecell">Year</th>
+              <th className="tablecell">Rank</th>
             </tr>
           </thead>
           <tbody>
