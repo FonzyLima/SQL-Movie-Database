@@ -4,13 +4,26 @@ nav {
 }
 
 nav .nav-link, nav .navbar-brand {
-    color: #254F72;
-    padding: 0%;
-    margin: 0%;
+    color: rgb(0, 34, 102);
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+li{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-item a{
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
 }
 
 .nav-item a:hover {
-    color: #18354c;
+    border-bottom: 3px solid rgb(0, 34, 102);
+    color: rgb(0, 34, 102);
 }
 
 .navpicture{
@@ -29,7 +42,7 @@ nav .nav-link, nav .navbar-brand {
 }
 
 .active {
-    font-weight: bolder;
+    border-bottom: 3px solid rgb(0, 34, 102);
 }
 
 .col a {

@@ -12,17 +12,17 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                   <a className={`nav-link `} aria-current="page" href="#">CREATE</a>
+                   <a className={`nav-link `} aria-current="page" href="#">HOME</a>
                   </li>
                   <li className="nav-item">
-                    <a className={`nav-link`}>READ</a>
+                    <a className={`nav-link`}>ABOUT</a>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a className={`nav-link `}>UPDATE</a>
                   </li>
                   <li className="nav-item d-flex">
                     <a className={`nav-link `}>DELETE</a>
-                  </li>
+                  </li> */}
                 </ul>
                 
               </div>

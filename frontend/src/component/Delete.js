@@ -12,8 +12,8 @@ const Delete = () => {
                     <h4 class="modal-title">Delete?</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btnproper" data-dismiss="modal">Delete</button>
+                        <button type="button" class="btncancel" data-dismiss="modal">Close</button>
                     </div>
                 </div>
                 </div>

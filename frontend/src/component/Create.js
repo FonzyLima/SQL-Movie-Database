@@ -4,7 +4,7 @@ const axios = require('axios');
 const Create = () => {
     return (
         <Fragment>
-            <button type="button" id="createbutton" class="btnproper" data-toggle="modal" data-target={`#create`}>Create</button>
+            <button type="button" id="createbutton" class="btnproper" data-toggle="modal" data-target={`#create`}>Create a Transaction</button>
             <div id='create' class="modal fade" role="dialog">
                 <div class="modal-dialog">
                 <div class="modal-content">
@@ -20,8 +20,8 @@ const Create = () => {
                         <input type="text" className="form-control"/>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btnproper" data-dismiss="modal">Create</button>
+                        <button type="button" class="btncancel" data-dismiss="modal">Close</button>
                     </div>
                 </div>
                 </div>

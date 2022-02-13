@@ -28,15 +28,11 @@ function App() {
   console.log(data);
   return (
     <div className="page">
-
-      {/* <div className="header">  
-        <div className="headerContent">
-          <span className="section">STADVDB S14</span>
-          <span className="names">Berenguer, Camarillo, Lima</span>
-        </div>
-      </div> */}
       
       <Navbar/>
+      <div className="title">
+        <h3>MCO2: Transaction Management</h3>
+      </div>
       <Create/>
       <div className="body">
         <table

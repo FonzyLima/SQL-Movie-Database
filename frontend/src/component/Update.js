@@ -20,8 +20,8 @@ const Update = () => {
                         <input type="text" className="form-control"/>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btnproper" data-dismiss="modal">Update</button>
+                        <button type="button" class="btncancel" data-dismiss="modal">Close</button>
                     </div>
                 </div>
                 </div>

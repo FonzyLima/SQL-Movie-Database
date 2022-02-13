@@ -3,7 +3,7 @@
     background-color: rgb(199, 219, 236);
 }
 
-.header{
+/* .header{
     display: flex;
     align-items: center;
     justify-content: left;
@@ -18,10 +18,21 @@
 }
 .section{
     font-weight:bold;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3{
+    font-weight: 600;
 }
 
 .tableproper{
-    margin: 30px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
