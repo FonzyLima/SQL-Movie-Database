@@ -26,11 +26,11 @@ Create .env file like the example below:
     PASSWORD=admin12345!
     DATABASE=mco2
 
-Commands<br>
+Commands:<br>
 npm start - start database <br>
 npm run dev - start database in development mode (nodemon)<br>
 
 
 ### Frontend
-Commands
-npm start - start database 
+Commands:<br>
+npm start - start database<br> 
