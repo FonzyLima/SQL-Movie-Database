@@ -2,6 +2,7 @@ import "./App.css";
 import React,{useEffect,useState} from 'react';
 import Axios from 'axios';
 import Navbar from './component/Navbar'
+import Create from './component/Create'
 
 function App() {
   const [data,setData] = useState([])
@@ -28,7 +29,8 @@ function App() {
       </div> */}
       
       <Navbar/>
-      
+      <Create/>
+
       <div className="body">
         <table
           id="dtBasicExample"
