@@ -10,6 +10,7 @@ Packages to be installed:</p>
     <li>mysql</li>
     <li>body-parser</li>
     <li>cors</li>
+    <li>nodemon</li>
 </ul>
 
 ### Frontend
@@ -18,3 +19,22 @@ Packages to be installed:</p>
 <ul>
     <li>axios</li>
 </ul>
+
+## Setup
+### Backend
+<p>Create .env file like the example below: </p>
+```
+HOSTNAME=fonzyserver.mysql.database.azure.com
+USER=mco2admin
+PASSWORD=admin12345!
+DATABASE=mco2
+```
+<p>Commands</p>
+<p>npm start - start database <br>
+npm run dev - start database in development mode (nodemon)<br>
+</p>
+
+### Frontend
+<p>Commands</p>
+<p>npm start - start database <br>
+</p>
