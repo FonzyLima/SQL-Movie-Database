@@ -17,7 +17,7 @@ Use npm i to install packages
 Packages to be installed:
 - axios
 
-## Setup
+## Run Application
 ### Backend
 Create .env file like the example below:
 
