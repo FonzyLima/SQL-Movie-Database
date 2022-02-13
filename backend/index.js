@@ -15,6 +15,7 @@ const db = mysql.createPool({
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
+//Read
 app.get("/readAll", (req, res) => {
   const sqlRead = "SELECT * FROM mco2.movies LIMIT 12";
   db.query(sqlRead, (err, result) => {
@@ -22,6 +23,7 @@ app.get("/readAll", (req, res) => {
     res.send(result);
   });
 });
+//Create
 app.post("/createNew",(req,res)=>{
     const movieName = req.body.name;
     const movieYear = req.body.year;
@@ -32,6 +34,7 @@ app.post("/createNew",(req,res)=>{
         console.log("Success")
     })
 });
+//Delete
 app.delete("/delete/:id",(req,res)=>{
     const movieId = req.body.id;
     const sqlDelete = "DELETE FROM mco2.movies WHERE id=?"
@@ -39,7 +42,8 @@ app.delete("/delete/:id",(req,res)=>{
         if (err) console.log("Error: "+err);
         console.log("Success");
     })
-})
+});
+//Update
 app.patch("/update/:id",(req,res)=>{
     const movieId = req.body.id;
     const movieName = req.body.name;
@@ -50,7 +54,7 @@ app.patch("/update/:id",(req,res)=>{
         if(err)console.log("Error: "+err);
         console.log("Success");
     })
-})
+});
 app.listen(3001, () => {
   console.log("Running on port 3001");
 });
