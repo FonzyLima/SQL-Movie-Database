@@ -1,7 +1,6 @@
 import '../styles/crud.css'
-
-import React, {Fragment} from 'react';
-
+import React, {useState,useEffect,Fragment} from 'react';
+const axios = require('axios');
 const Create = () => {
     return (
         <Fragment>

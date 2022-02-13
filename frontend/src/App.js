@@ -22,14 +22,6 @@ function App() {
   }
 
   useEffect(()=>{
-    //get all data from database
-    // Axios.get("http://localhost:3001/readAll").then((response) =>{
-    //   console.log("ANSWER")
-    //   setData(response.data);
-    //   console.log(response.data)
-    // }).catch((err)=>{
-    //   console.log(err);
-    // });
     getData();
   },[]);
   console.log("HEY")

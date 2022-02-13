@@ -9,7 +9,12 @@ Packages to be installed:</p>
     <li>dotenv</li>
     <li>mysql</li>
     <li>body-parser</li>
-    <li>cors</>
+    <li>cors</li>
 </ul>
 
 ### Frontend
+<p>Use npm i to install packages<br>
+Packages to be installed:</p>
+<ul>
+    <li>axios</li>
+</ul>
