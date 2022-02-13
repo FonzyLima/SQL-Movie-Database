@@ -16,7 +16,7 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.get("/readAll", (req, res) => {
-  const sqlRead = "SELECT * FROM mco2.movies LIMIT 10";
+  const sqlRead = "SELECT * FROM mco2.movies LIMIT 12";
   db.query(sqlRead, (err, result) => {
     if (err) console.log("ERROR: "+err);
     res.send(result);

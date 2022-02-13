@@ -1,20 +1,33 @@
 import "./App.css";
 import React,{useEffect,useState} from 'react';
-import Axios from 'axios';
 import Navbar from './component/Navbar'
 import Create from './component/Create'
-
+const axios = require('axios');
 function App() {
   const [data,setData] = useState([])
+  const getData = async () =>{
+    try {
+      const getMovieData = await axios({
+        url: "http://localhost:3001/readAll",
+        method: "get"
+      });
+      setData(getMovieData.data)
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(()=>{
     //get all data from database
-    Axios.get("http://localhost:3001/readAll").then((response) =>{
-      console.log("ANSWER")
-      setData(response.data);
-      console.log(response.data)
-    }).catch((err)=>{
-      console.log(err);
-    });
+    // Axios.get("http://localhost:3001/readAll").then((response) =>{
+    //   console.log("ANSWER")
+    //   setData(response.data);
+    //   console.log(response.data)
+    // }).catch((err)=>{
+    //   console.log(err);
+    // });
+    getData();
   },[]);
   console.log("HEY")
   console.log(data);
