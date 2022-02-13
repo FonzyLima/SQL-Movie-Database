@@ -27,8 +27,8 @@ Create .env file like the example below:
     DATABASE=mco2
 
 Commands
-npm start - start database <br>
-npm run dev - start database in development mode (nodemon)<br>
+npm start - start database 
+npm run dev - start database in development mode (nodemon)
 
 
 ### Frontend
