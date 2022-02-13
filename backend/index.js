@@ -22,6 +22,16 @@ app.get("/readAll", (req, res) => {
     res.send(result);
   });
 });
+app.post("/createNew",(req,res)=>{
+    const movieName = req.body.name;
+    const movieYear = req.body.year;
+    const movieRank = req.body.rank;
+    const sqlInsert = "INSERT INTO mco2.movies (name, year, rank) VALUES (?,?)"
+    db.query(sqlInsert,[movieName,movieYear,movieRank],(err, result)=>{
+        if (err) console.log("Error: "+err);
+        console.log("Success")
+    })
+})
 app.listen(3001, () => {
   console.log("Running on port 3001");
 });
