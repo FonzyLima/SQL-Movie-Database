@@ -2,7 +2,11 @@ import "./App.css";
 import React,{useEffect,useState} from 'react';
 import Navbar from './component/Navbar'
 import Create from './component/Create'
+
+import Update from './component/Update'
+import Delete from './component/Delete'
 const axios = require('axios');
+
 function App() {
   const [data,setData] = useState([])
   const getData = async () =>{
@@ -66,6 +70,8 @@ function App() {
                 <td>{item.name}</td>
                 <td>{item.year}</td>
                 <td>{item.rank}</td>
+                <Update/>
+                <Delete/>
               </tr>
             ))}
             {/* <tr>
