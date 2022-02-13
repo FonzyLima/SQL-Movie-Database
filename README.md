@@ -6,6 +6,7 @@
 Packages to be installed:</p>
 <ul>
     <li>express</li>
+    <li>dotenv</li>
     <li>mysql</li>
 </ul>
 
