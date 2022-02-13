@@ -8,6 +8,8 @@ Packages to be installed:</p>
     <li>express</li>
     <li>dotenv</li>
     <li>mysql</li>
+    <li>body-parser</li>
+    <li>cors</>
 </ul>
 
 ### Frontend

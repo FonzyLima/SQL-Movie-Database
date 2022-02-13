@@ -1,0 +1,38 @@
+nav {
+    background-color: white; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+nav .nav-link, nav .navbar-brand {
+    color: #254F72;
+    padding: 0%;
+    margin: 0%;
+}
+
+.nav-item a:hover {
+    color: #18354c;
+}
+
+.navpicture{
+    height: 45px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(37, 79, 114)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+.custom-toggler, .navbar-toggler {
+    border-color: #254F72;
+}
+
+.active {
+    font-weight: bolder;
+}
+
+.col a {
+    text-decoration: none;
+    color: white;
+}
