@@ -3,6 +3,8 @@ import React,{useEffect,useState} from 'react';
 import Axios from 'axios';
 import Navbar from './component/Navbar'
 import Create from './component/Create'
+import Update from './component/Update'
+import Delete from './component/Delete'
 
 function App() {
   const [data,setData] = useState([])
@@ -53,6 +55,8 @@ function App() {
                 <td>{item.name}</td>
                 <td>{item.year}</td>
                 <td>{item.rank}</td>
+                <Update/>
+                <Delete/>
               </tr>
             ))}
             {/* <tr>
