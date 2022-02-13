@@ -21,11 +21,10 @@ Packages to be installed:
 ### Backend
 Create .env file like the example below:
 
-> HOSTNAME=fonzyserver.mysql.database.azure.com
-
-> USER=mco2admin
-> PASSWORD=admin12345!
-> DATABASE=mco2
+    HOSTNAME=fonzyserver.mysql.database.azure.com
+    USER=mco2admin
+    PASSWORD=admin12345!
+    DATABASE=mco2
 
 Commands
 npm start - start database <br>
