@@ -34,9 +34,10 @@ function App() {
       <div className="body">
         <table
           id="dtBasicExample"
-          className="table table-striped table-bordered table-sm"
-          cellspacing="0"
-          width="100%"
+          className="table table-striped table-bordered table-sm tableproper"
+          cellpadding="10px"
+          // cellspacing="0"
+          // width="100%"
         >
           <thead>
             <tr>

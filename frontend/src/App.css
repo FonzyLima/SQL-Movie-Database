@@ -19,3 +19,11 @@
 .section{
     font-weight:bold;
 }
+.tableproper{
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: white;
+    cellpadding: 10px;
+}
