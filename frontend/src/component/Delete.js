@@ -1,9 +1,10 @@
+import '../styles/crud.css'
 import React, {Fragment} from 'react';
 
 const Delete = () => {
     return (
         <Fragment>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target={`#delete`}>Delete</button>
+            <button type="button" class="btnproper" data-toggle="modal" data-target={`#delete`}>Delete</button>
             <div id='delete' class="modal fade" role="dialog">
                 <div class="modal-dialog">
                 <div class="modal-content">

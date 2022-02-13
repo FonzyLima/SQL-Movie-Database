@@ -1,9 +1,10 @@
+import '../styles/crud.css'
 import React, {Fragment} from 'react';
 
 const Update = () => {
     return (
         <Fragment>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target={`#update`}>Update</button>
+            <button type="button" class="btnproper" data-toggle="modal" data-target={`#update`}>Update</button>
             <div id='update' class="modal fade" role="dialog">
                 <div class="modal-dialog">
                 <div class="modal-content">
