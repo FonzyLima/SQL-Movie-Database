@@ -49,7 +49,6 @@ app.post("/createNew",(req,res)=>{
 //Delete
 app.delete("/delete",(req,res)=>{
     const movieId = req.body.id;
-    console.log("AHHHH"+movieId)
     const sqlDelete = "DELETE FROM mco2.movies WHERE id=?"
     db.query(sqlDelete,[movieId],(err, result)=>{
         if (err) console.log("Error: "+err);
@@ -57,13 +56,15 @@ app.delete("/delete",(req,res)=>{
     })
 });
 //Update
-app.patch("/update/:id",(req,res)=>{
+app.patch("/update",(req,res)=>{
     const movieId = req.body.id;
     const movieName = req.body.name;
     const movieYear = req.body.year;
     const movieRank = req.body.rank;
-    const sqlUpdate = "UPDATE mco2.movies SET name=?, year=?,rank=? WHERE id=?"
-    db.query(sqlUpdate,[movieName,movieYear,movieRank,movieId],(err, result)=>{
+    const sqlUpdate = "UPDATE mco2.movies SET ? WHERE id=?"
+    const body = {name:movieName,year:movieYear,rank:movieRank}
+    console.log(body)
+    db.query(sqlUpdate,[body,movieId],(err, result)=>{
         if(err)console.log("Error: "+err);
         console.log("Success");
     })
