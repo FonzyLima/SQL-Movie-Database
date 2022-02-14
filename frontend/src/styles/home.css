@@ -1,0 +1,57 @@
+.page{
+    height:100vh;
+    background-color: rgb(199, 219, 236);
+}
+
+/* .header{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-align: center;
+    font-size: 24px;
+    height:120px;
+    background-color: blanchedalmond;
+}
+.headerContent>span{
+    display:flex; 
+    margin-left: 12px;       
+}
+.section{
+    font-weight:bold;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3{
+    font-weight: 600;
+}
+
+.tableproper{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    background-color: white;
+    border-radius: 20px;
+    border-color: black;
+}
+
+td{
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-top: 1px solid black;
+}
+
+th{
+    padding: 10px;
+    padding-left: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
+}
