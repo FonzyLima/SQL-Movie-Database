@@ -47,8 +47,9 @@ app.post("/createNew",(req,res)=>{
     
 });
 //Delete
-app.delete("/delete/:id",(req,res)=>{
+app.delete("/delete",(req,res)=>{
     const movieId = req.body.id;
+    console.log("AHHHH"+movieId)
     const sqlDelete = "DELETE FROM mco2.movies WHERE id=?"
     db.query(sqlDelete,[movieId],(err, result)=>{
         if (err) console.log("Error: "+err);
