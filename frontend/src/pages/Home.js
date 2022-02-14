@@ -59,8 +59,7 @@ const Home = () =>{
                         <Update />
                       </td>
                       <td>
-                        {" "}
-                        <Delete />
+                        <Delete id={item.id} year={item.year}/>
                       </td>
                     </tr>
                   ))}

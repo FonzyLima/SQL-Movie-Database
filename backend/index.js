@@ -26,13 +26,25 @@ app.get("/readAll", (req, res) => {
 //Create
 app.post("/createNew",(req,res)=>{
     const movieName = req.body.name;
-    const movieYear = req.body.year;
-    const movieRank = req.body.rank;
-    const sqlInsert = "INSERT INTO mco2.movies (name, year, rank) VALUES (?,?,?)"
-    db.query(sqlInsert,[movieName,movieYear,movieRank],(err, result)=>{
+    const movieYear = parseInt(req.body.year);
+    const movieRank = parseInt(req.body.rank);
+    const sqlMaxId = "SELECT MAX(id) AS maxId FROM mco2.movies"
+    //const sqlInsert = "INSERT INTO mco2.movies (id, name, year, rank) VALUES(?,?,?,?)"
+    const sqlInsert = "INSERT INTO movies SET ?"
+    
+    db.query(sqlMaxId,(err, result)=>{
         if (err) console.log("Error: "+err);
-        console.log("Success")
+        else{
+          let newId = result[0].maxId +1;
+          let newMovie = {id:newId,name:movieName,year:movieYear,rank:movieRank}
+          db.query(sqlInsert,newMovie,(err, result)=>{
+          if (err) console.log("Error: "+err);
+          console.log("Success")
+      })
+        }
+        
     })
+    
 });
 //Delete
 app.delete("/delete/:id",(req,res)=>{
