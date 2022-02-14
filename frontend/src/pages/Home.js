@@ -8,7 +8,7 @@ const axios = require("axios");
 
 const Home = () =>{
     const [data, setData] = useState([]);
-  const getData = async () => {
+    const getData = async () => {
     try {
       const getMovieData = await axios({
         url: "http://localhost:3001/readAll",
