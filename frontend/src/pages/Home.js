@@ -57,11 +57,10 @@ const Home = () =>{
                       <td>{item.year}</td>
                       <td>{item.rank}</td>
                       <td>
-                        <Update />
+                        <Update id={item.id} name={item.name} year={item.year} rank={item.rank}/>
                       </td>
                       <td>
-                        {" "}
-                        <Delete />
+                        <Delete id={item.id} year={item.year}/>
                       </td>
                     </tr>
                   ))}
