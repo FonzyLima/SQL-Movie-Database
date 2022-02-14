@@ -61,12 +61,6 @@ function App() {
                 <td> <Delete/></td>
               </tr>
             ))}
-            {/* <tr>
-              <td>{data[0].id}</td>
-              <td>{data[0].name}</td>
-              <td>{data[0].year}</td>
-              <td>{data[0].rank}</td>
-            </tr> */}
           </tbody>
         </table>
       </div>
