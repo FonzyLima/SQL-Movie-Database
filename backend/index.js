@@ -5,8 +5,24 @@ const bodyParser = require("body-parser")
 require("dotenv").config();
 
 const app = express();
+//Central Node
 const db = mysql.createPool({
-  host: process.env.HOSTNAME,
+  host: process.env.HOSTCENTRAL,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: 3306,
+});
+//Node 2
+const db2 = mysql.createPool({
+  host: process.env.HOSTNODE2,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: 3306,
+});
+const db3 = mysql.createPool({
+  host: process.env.HOSTNODE3,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
@@ -44,17 +60,57 @@ app.post("/createNew",(req,res)=>{
         }
         
     })
-    
+    if(movieYear<1980){
+      db2.query(sqlMaxId,(err, result)=>{
+        if (err) console.log("Error: "+err);
+        else{
+          let newId = result[0].maxId +1;
+          let newMovie = {id:newId,name:movieName,year:movieYear,rank:movieRank}
+          db2.query(sqlInsert,newMovie,(err, result)=>{
+          if (err) console.log("Error: "+err);
+          console.log("Success")
+      })
+        }
+        
+    })
+    }
+    else{
+      db3.query(sqlMaxId,(err, result)=>{
+        if (err) console.log("Error: "+err);
+        else{
+          let newId = result[0].maxId +1;
+          let newMovie = {id:newId,name:movieName,year:movieYear,rank:movieRank}
+          db3.query(sqlInsert,newMovie,(err, result)=>{
+          if (err) console.log("Error: "+err);
+          console.log("Success")
+      })
+        }
+        
+    })
+    }
 });
 //Delete
 app.delete("/delete",(req,res)=>{
     const movieId = req.body.id;
+    const movieYear = req.body.year;
     console.log(movieId)
     const sqlDelete = "DELETE FROM mco2.movies WHERE id=?"
     db.query(sqlDelete,[movieId],(err, result)=>{
         if (err) console.log("Error: "+err);
         console.log("Success");
     })
+    if(movieYear < 1980){
+      db2.query(sqlDelete,[movieId],(err, result)=>{
+        if (err) console.log("Error: "+err);
+        console.log("Success");
+    })
+    }
+    else{
+      db3.query(sqlDelete,[movieId],(err, result)=>{
+        if (err) console.log("Error: "+err);
+        console.log("Success");
+    })
+    }
 });
 //Update
 app.patch("/update",(req,res)=>{
@@ -69,6 +125,18 @@ app.patch("/update",(req,res)=>{
         if(err)console.log("Error: "+err);
         console.log("Success");
     })
+    if(movieYear <1980){
+      db2.query(sqlUpdate,[body,movieId],(err, result)=>{
+        if(err)console.log("Error: "+err);
+        console.log("Success");
+    })
+    }
+    else{
+      db3.query(sqlUpdate,[body,movieId],(err, result)=>{
+        if(err)console.log("Error: "+err);
+        console.log("Success");
+    })
+    }
 });
 app.listen(3001, () => {
   console.log("Running on port 3001");
