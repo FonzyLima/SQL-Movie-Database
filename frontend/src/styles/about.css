@@ -1,0 +1,58 @@
+.title{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+h1{
+    font-weight: 600;
+}
+
+h3{
+    font-weight: 400;
+    color: black;
+}
+
+.hr-about{
+    /* border: 0.1px solid rgb(0, 22, 66); */
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#proj-desc{
+    margin-left: 50px;
+    font-size: 1.3rem;
+    color: black;
+}
+
+#get-started{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.get-started{
+    background-color: rgb(0, 34, 102);
+    color: white;
+    font-size: 1.3rem;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.get-started:hover{
+    background-color: white;
+    color: rgb(0, 34, 102);
+    border: 1px solid rgb(0, 34, 102);
+}
+
+/* .about{
+    display: flex;
+} */
+
+#read-me{
+    background-color: white;
+    margin-top: 50px;
+}

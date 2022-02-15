@@ -26,10 +26,11 @@ const Home = () =>{
   console.log("HEY");
   console.log(data);
     return(
-        <div className="page">
+        <div>
             <Navbar />
             <div className="title">
-              <h3>MCO2: Transaction Management</h3>
+              <h1>MCO2: Transaction Management</h1>
+              <hr></hr>
             </div>
             <Create />
             <div className="body">
