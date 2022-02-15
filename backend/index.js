@@ -28,6 +28,7 @@ const db3 = mysql.createPool({
   database: process.env.DATABASE,
   port: 3306,
 });
+const port = process.env.PORT || 3001
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -207,6 +208,6 @@ app.patch("/update", (req, res) => {
   }
   
 });
-app.listen(3001, () => {
-  console.log("Running on port 3001");
+app.listen(port, () => {
+  console.log("Running on port "+port);
 });

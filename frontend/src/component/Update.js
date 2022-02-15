@@ -12,7 +12,7 @@ const Update = (props) => {
             let id = props.id;
             let oldYear = props.year
             const updateMovieData = await axios({
-                url: "http://localhost:3001/update",
+                url: `${process.env.REACT_APP_HOSTNAME}/update`,
                 method: "patch",
                 data: {id,name,year,rank,oldYear}
             })

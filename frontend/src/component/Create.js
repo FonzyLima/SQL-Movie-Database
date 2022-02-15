@@ -10,7 +10,7 @@ const Create = () => {
     const createMovie = async () => {
         try{
             const createMovieData = await axios({
-                url: "http://localhost:3001/createNew",
+                url: `${process.env.REACT_APP_HOSTNAME}/createNew`,
                 method: "post",
                 data: {name,year,rank}
             })

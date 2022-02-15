@@ -9,7 +9,7 @@ const Delete = (props) => {
             let id = props.id
             let year = props.year
             const deleteMovieData = await axios({
-                url: "http://localhost:3001/delete",
+                url: `${process.env.REACT_APP_HOSTNAME}/delete`,
                 method:"delete",
                 data:{id}
             })

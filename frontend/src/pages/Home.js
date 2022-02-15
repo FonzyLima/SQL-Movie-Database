@@ -9,12 +9,13 @@ const axios = require("axios");
 const Home = () =>{
     const [data, setData] = useState([]);
     const [limit,setLimit] = useState(10);
+    console.log(process.env.REACT_APP_HOSTNAME)
     const getData = async () => {
     try {
       let lim = limit;
       console.log("LIMIT: "+lim)
       const getMovieData = await axios({
-        url: "http://localhost:3001/readAll",
+        url: `${process.env.REACT_APP_HOSTNAME}/readAll`,
         method: "post",
         data: {lim}
       });
