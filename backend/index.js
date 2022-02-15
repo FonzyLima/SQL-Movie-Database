@@ -185,40 +185,74 @@ app.patch("/update", (req, res) => {
   };
   console.log(body);
   console.log(oldYear);
-  db.query(sqlUpdate, [body, movieId], (err, result) => {
-    if (err) console.log("Error: " + err);
-    console.log("Success");
-  });
-
-  if (oldYear < 1980 && movieYear > 1980) {
-    db2.query(sqlDelete, [movieId], (err, result) => {
+  try {
+    db.query(sqlUpdate, [body, movieId], (err, result) => {
       if (err) console.log("Error: " + err);
-      console.log("Success 2");
+      console.log("Success");
     });
-    db3.query(sqlInsert, bodyInsert, (err, result) => {
-      if (err) console.log("Error: " + err);
-      console.log("Success 3");
-    });
-  } else if (oldYear > 1980 && movieYear < 1980) {
-    db3.query(sqlDelete, [movieId], (err, result) => {
-      if (err) console.log("Error: " + err);
-      console.log("Success 4");
-    });
-    db2.query(sqlInsert, bodyInsert, (err, result) => {
-      if (err) console.log("Error: " + err);
-      console.log("Success 5");
-    });
-  } else {
-    if (movieYear < 1980) {
-      db2.query(sqlUpdate, [body, movieId], (err, result) => {
+  
+    if (oldYear < 1980 && movieYear > 1980) {
+      db2.query(sqlDelete, [movieId], (err, result) => {
         if (err) console.log("Error: " + err);
-        console.log("Success");
+        console.log("Success 2");
+      });
+      db3.query(sqlInsert, bodyInsert, (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success 3");
+      });
+    } else if (oldYear > 1980 && movieYear < 1980) {
+      db3.query(sqlDelete, [movieId], (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success 4");
+      });
+      db2.query(sqlInsert, bodyInsert, (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success 5");
       });
     } else {
-      db3.query(sqlUpdate, [body, movieId], (err, result) => {
+      if (movieYear < 1980) {
+        db2.query(sqlUpdate, [body, movieId], (err, result) => {
+          if (err) console.log("Error: " + err);
+          console.log("Success");
+        });
+      } else {
+        db3.query(sqlUpdate, [body, movieId], (err, result) => {
+          if (err) console.log("Error: " + err);
+          console.log("Success");
+        });
+      }
+    }
+  } catch (error) {
+    if (oldYear < 1980 && movieYear > 1980) {
+      db2.query(sqlDelete, [movieId], (err, result) => {
         if (err) console.log("Error: " + err);
-        console.log("Success");
+        console.log("Success 2");
       });
+      db3.query(sqlInsert, bodyInsert, (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success 3");
+      });
+    } else if (oldYear > 1980 && movieYear < 1980) {
+      db3.query(sqlDelete, [movieId], (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success 4");
+      });
+      db2.query(sqlInsert, bodyInsert, (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success 5");
+      });
+    } else {
+      if (movieYear < 1980) {
+        db2.query(sqlUpdate, [body, movieId], (err, result) => {
+          if (err) console.log("Error: " + err);
+          console.log("Success");
+        });
+      } else {
+        db3.query(sqlUpdate, [body, movieId], (err, result) => {
+          if (err) console.log("Error: " + err);
+          console.log("Success");
+        });
+      }
     }
   }
 });
