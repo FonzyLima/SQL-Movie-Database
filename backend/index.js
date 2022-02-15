@@ -21,6 +21,7 @@ const db2 = mysql.createPool({
   database: process.env.DATABASE,
   port: 3306,
 });
+//Node 3
 const db3 = mysql.createPool({
   host: process.env.HOSTNODE3,
   user: process.env.USER,
