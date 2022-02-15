@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 //Read
 app.get("/readAll", (req, res) => {
-  const sqlRead = "SELECT * FROM mco2.movies LIMIT 12";
+  const sqlRead = "SELECT * FROM mco2.movies ORDER BY id DESC LIMIT 12";
   db.query(sqlRead, (err, result) => {
     if (err) console.log("ERROR: "+err);
     res.send(result);
@@ -49,6 +49,7 @@ app.post("/createNew",(req,res)=>{
 //Delete
 app.delete("/delete",(req,res)=>{
     const movieId = req.body.id;
+    console.log(movieId)
     const sqlDelete = "DELETE FROM mco2.movies WHERE id=?"
     db.query(sqlDelete,[movieId],(err, result)=>{
         if (err) console.log("Error: "+err);
