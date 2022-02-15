@@ -8,11 +8,15 @@ const axios = require("axios");
 
 const Home = () =>{
     const [data, setData] = useState([]);
+    const [limit,setLimit] = useState(10);
     const getData = async () => {
     try {
+      let lim = limit;
+      console.log("LIMIT: "+lim)
       const getMovieData = await axios({
         url: "http://localhost:3001/readAll",
-        method: "get",
+        method: "post",
+        data: {lim}
       });
       setData(getMovieData.data);
     } catch (error) {
@@ -22,7 +26,7 @@ const Home = () =>{
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [limit]);
   console.log("HEY");
   console.log(data);
     return(
@@ -66,6 +70,7 @@ const Home = () =>{
                   ))}
                 </tbody>
               </table>
+              <button onClick={()=>setLimit(limit+10)}>Load More</button>
             </div>
           </div>
     )
