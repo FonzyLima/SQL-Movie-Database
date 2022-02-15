@@ -59,8 +59,8 @@ app.delete("/delete",(req,res)=>{
 app.patch("/update",(req,res)=>{
     const movieId = req.body.id;
     const movieName = req.body.name;
-    const movieYear = req.body.year;
-    const movieRank = req.body.rank;
+    const movieYear = parseInt(req.body.year);
+    const movieRank = parseInt(req.body.rank);
     const sqlUpdate = "UPDATE mco2.movies SET ? WHERE id=?"
     const body = {name:movieName,year:movieYear,rank:movieRank}
     console.log(body)

@@ -2,9 +2,9 @@ import '../styles/crud.css'
 import React, {useState,useEffect,Fragment} from 'react';
 const axios = require('axios');
 const Update = (props) => {
-    const [name,setName] = useState(null);
-    const [year,setYear] = useState(null);
-    const [rank,setRank] = useState(null);
+    const [name,setName] = useState(props.name);
+    const [year,setYear] = useState(props.year);
+    const [rank,setRank] = useState(props.rank);
     const [update,setUpdate] = useState(false);
     console.log(props)
     const updateMovie = async()=>{
@@ -27,8 +27,8 @@ const Update = (props) => {
     },[update])
     return (
         <Fragment>
-            <button type="button" class="btnproper" data-toggle="modal" data-target={`#update`}>Update</button>
-            <div id='update' class="modal fade" role="dialog">
+            <button type="button" class="btnproper" data-toggle="modal" data-target={`#update-${props.id}`}>Update</button>
+            <div id={`update-${props.id}`} class="modal fade" role="dialog">
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -36,11 +36,11 @@ const Update = (props) => {
                     </div>
                     <div class="modal-body">
                         <a>Name</a>
-                        <input type="text" className="form-control" placeholder={props.name} onChange={(e)=>setName(e)}/>
+                        <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)}/>
                         <a>Year</a>
-                        <input type="text" className="form-control" placeholder={props.year} onChange={(e)=>setYear(e)}/>
+                        <input type="number" className="form-control" value={year} onChange={(e)=>setYear(e.target.value)}/>
                         <a>Rank</a>
-                        <input type="text" className="form-control" placeholder={props.rank} onChange={(e)=>setRank(e)}/>
+                        <input type="number" className="form-control" value={rank} onChange={(e)=>setRank(e.target.value)}/>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btnproper" data-dismiss="modal" onClick={()=>setUpdate(true)}>Update</button>
