@@ -7,6 +7,7 @@ const Delete = (props) => {
     const deleteMovie = async()=>{
         try {
             let id = props.id
+            let year = props.year
             const deleteMovieData = await axios({
                 url: "http://localhost:3001/delete",
                 method:"delete",
