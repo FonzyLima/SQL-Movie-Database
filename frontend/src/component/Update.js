@@ -10,10 +10,11 @@ const Update = (props) => {
     const updateMovie = async()=>{
         try{
             let id = props.id;
+            let oldYear = props.year
             const updateMovieData = await axios({
                 url: "http://localhost:3001/update",
                 method: "patch",
-                data: {id,name,year,rank}
+                data: {id,name,year,rank,oldYear}
             })
         }
         catch (e){
