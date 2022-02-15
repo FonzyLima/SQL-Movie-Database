@@ -2,7 +2,7 @@ import '../styles/crud.css'
 import React, {useState,useEffect,Fragment} from 'react';
 const axios =require('axios');
 const Delete = (props) => {
-    const [del,setDelete] = useState(false)
+    const [del,setDelete] = useState(false);
     console.log(props)
     const deleteMovie = async()=>{
         try {
