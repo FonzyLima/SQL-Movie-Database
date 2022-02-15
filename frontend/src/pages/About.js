@@ -23,22 +23,63 @@ const About = () =>{
                 </div>
             </div>
 
-            <div class="container" id="read-me">
-                <h5> Setting up</h5>
+            <div class="container-fluid" id="read-me">
+                <h4> Setting up</h4>
                 <div class="row">
-                    <div class="col-sm">
-                    One of three columns
+                    <div class="col-sm-6">
+                        <h5> Installation</h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 className="subtitle">Backend</h5><br></br>
+                                Use npm i to install packages Packages to be installed:
+                                <li>express</li>
+                                <li>dotenv</li>
+                                <li>mysql</li>
+                                <li>body-parser</li>
+                                <li>cors</li>
+                                <li>nodemon</li>
+                            </div>
+
+                            <div class="col-sm-6">
+                            <h5 className="subtitle">Frontend</h5><br></br>
+                                Use npm i to install packages Packages to be installed:
+                                <li>axios</li>
+                                <li>react-router-dom</li>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm">
-                    One of three columns
-                    </div>
-                    <div class="col-sm">
-                    One of three columns
+                    <div class="col-sm-6">
+                        <h5> Run Application</h5>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5 className="subtitle">Backend</h5><br></br>
+                                    Create .env file like the example below: <br></br>
+                                    HOSTNAME=fonzyserver.mysql.database.azure.com <br></br>
+                                    USER=mco2admin <br></br>
+                                    PASSWORD=admin12345! <br></br>
+                                    DATABASE=mco2 <br></br> <br></br>
+                                    Commands:
+                                    <li>npm start - start database </li>
+                                    <li>npm run dev - start database in development mode (nodemon)</li>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <h5 className="subtitle">Frontend</h5><br></br>
+                                    Commands:
+                                    <li>npm start - start database </li>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
 
-        </div>  
+            <footer>
+                <p> STADVDB S14 <br></br> </p>
+                <p> BERENGUER, Beatrice A. <br></br></p> 
+                <p> CAMARILLO, Bryan Daniel B. <br></br></p> 
+                <p> LIMA, Alfonso Gabriel V. </p>
+            </footer>
+        </div>
     )
 }
 

@@ -72,6 +72,13 @@ const Home = () =>{
               </table>
               <button onClick={()=>setLimit(limit+10)}>Load More</button>
             </div>
+
+            <footer>
+                <p> STADVDB S14 <br></br> </p>
+                <p> BERENGUER, Beatrice A. <br></br></p> 
+                <p> CAMARILLO, Bryan Daniel B. <br></br></p> 
+                <p> LIMA, Alfonso Gabriel V. </p>
+            </footer>
           </div>
     )
 }
