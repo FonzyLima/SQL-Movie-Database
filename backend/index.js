@@ -32,8 +32,10 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 //Read
-app.get("/readAll", (req, res) => {
-  const sqlRead = "SELECT * FROM mco2.movies ORDER BY id DESC LIMIT 12";
+app.post("/readAll", (req, res) => {
+  console.log(req.body)
+
+  const sqlRead = `SELECT * FROM mco2.movies ORDER BY id DESC LIMIT ${limit}`;
   db.query(sqlRead, (err, result) => {
     if (err) console.log("ERROR: "+err);
     res.send(result);
