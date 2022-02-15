@@ -70,7 +70,7 @@ const Home = () =>{
                   ))}
                 </tbody>
               </table>
-              <button onClick={()=>setLimit(limit+10)}>Load More</button>
+              <button className="btnproper" id="createbutton" onClick={()=>setLimit(limit+10)}>Load More</button>
             </div>
 
             <footer>

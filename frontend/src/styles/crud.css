@@ -1,13 +1,19 @@
 #createbutton{
+    background-color: rgb(0, 34, 102);
+    color: white;
     text-align: center;
     display: flex;
     display: grid;
     margin: auto;
 }
 
+#createbutton:hover{
+    background-color: white;
+    color: rgb(0, 34, 102);
+    border: 1px solid rgb(0, 34, 102);
+}
+
 .btnproper{
-    background-color: rgb(0, 34, 102);
-    color: white;
     font-size: 1rem;
     padding: 10px;
     border: 1px solid transparent;
@@ -15,8 +21,6 @@
 }
 
 .btnproper:hover{
-    background-color: white;
-    color: rgb(0, 34, 102);
     border: 1px solid rgb(0, 34, 102);
 }
 
