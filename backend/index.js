@@ -33,8 +33,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 //Read
 app.post("/readAll", (req, res) => {
-  console.log(req.body)
-
+  let limit = req.body.lim;
   const sqlRead = `SELECT * FROM mco2.movies ORDER BY id DESC LIMIT ${limit}`;
   db.query(sqlRead, (err, result) => {
     if (err) console.log("ERROR: "+err);
