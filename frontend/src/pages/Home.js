@@ -67,6 +67,13 @@ const Home = () =>{
                 </tbody>
               </table>
             </div>
+
+            <footer>
+                <p> STADVDB S14 <br></br> </p>
+                <p> BERENGUER, Beatrice A. <br></br></p> 
+                <p> CAMARILLO, Bryan Daniel B. <br></br></p> 
+                <p> LIMA, Alfonso Gabriel V. </p>
+            </footer>
           </div>
     )
 }

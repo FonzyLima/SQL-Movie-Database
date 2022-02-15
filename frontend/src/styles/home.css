@@ -23,6 +23,9 @@
 
 body{
     background-color: rgba(246,246,246,255);
+    min-height: 800px;
+    margin-bottom: 200px;
+    clear: both;
 }
 
 .title{
