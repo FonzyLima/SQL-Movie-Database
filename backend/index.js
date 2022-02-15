@@ -28,7 +28,7 @@ const db3 = mysql.createPool({
   database: process.env.DATABASE,
   port: 3306,
 });
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -68,7 +68,7 @@ app.post("/createNew", (req, res) => {
 
   try {
     console.log("CENTRAL NODE CREATE");
-    db.query("START TRANSACTION")
+    db.query("START TRANSACTION");
     db.query(sqlMaxId, (err, result) => {
       if (err) console.log("Error: " + err);
       else {
@@ -96,7 +96,7 @@ app.post("/createNew", (req, res) => {
         });
       }
     });
-    db.query("COMMIT")
+    db.query("COMMIT");
   } catch (error) {
     db2.query(sqlMaxId, (err, result) => {
       if (err) console.log("Error: " + err);
@@ -136,20 +136,34 @@ app.delete("/delete", (req, res) => {
   const movieYear = req.body.year;
   console.log(movieId);
   const sqlDelete = "DELETE FROM mco2.movies WHERE id=?";
-  db.query(sqlDelete, [movieId], (err, result) => {
-    if (err) console.log("Error: " + err);
-    console.log("Success");
-  });
-  if (movieYear < 1980) {
-    db2.query(sqlDelete, [movieId], (err, result) => {
+  try {
+    db.query(sqlDelete, [movieId], (err, result) => {
       if (err) console.log("Error: " + err);
       console.log("Success");
     });
-  } else {
-    db3.query(sqlDelete, [movieId], (err, result) => {
-      if (err) console.log("Error: " + err);
-      console.log("Success");
-    });
+    if (movieYear < 1980) {
+      db2.query(sqlDelete, [movieId], (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success");
+      });
+    } else {
+      db3.query(sqlDelete, [movieId], (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success");
+      });
+    }
+  } catch (error) {
+    if (movieYear < 1980) {
+      db2.query(sqlDelete, [movieId], (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success");
+      });
+    } else {
+      db3.query(sqlDelete, [movieId], (err, result) => {
+        if (err) console.log("Error: " + err);
+        console.log("Success");
+      });
+    }
   }
 });
 //Update
@@ -158,41 +172,43 @@ app.patch("/update", (req, res) => {
   const movieName = req.body.name;
   const movieYear = parseInt(req.body.year);
   const movieRank = parseInt(req.body.rank);
-  const oldYear = parseInt(req.body.oldYear)
+  const oldYear = parseInt(req.body.oldYear);
   const sqlUpdate = "UPDATE mco2.movies SET ? WHERE id=?";
   const sqlDelete = "DELETE FROM mco2.movies WHERE id=?";
-  const sqlInsert = "INSERT INTO mco2.movies SET ?"
+  const sqlInsert = "INSERT INTO mco2.movies SET ?";
   const body = { name: movieName, year: movieYear, rank: movieRank };
-  const bodyInsert = {id: movieId,name:movieName,year:movieYear,rank:movieRank};
+  const bodyInsert = {
+    id: movieId,
+    name: movieName,
+    year: movieYear,
+    rank: movieRank,
+  };
   console.log(body);
-  console.log(oldYear)
+  console.log(oldYear);
   db.query(sqlUpdate, [body, movieId], (err, result) => {
     if (err) console.log("Error: " + err);
     console.log("Success");
   });
 
-  if(oldYear <1980 && movieYear>1980){
-    db2.query(sqlDelete,[movieId],(err, result)=>{
+  if (oldYear < 1980 && movieYear > 1980) {
+    db2.query(sqlDelete, [movieId], (err, result) => {
       if (err) console.log("Error: " + err);
-      console.log("Success 2")
-    })
-    db3.query(sqlInsert,bodyInsert,(err, result)=>{
+      console.log("Success 2");
+    });
+    db3.query(sqlInsert, bodyInsert, (err, result) => {
       if (err) console.log("Error: " + err);
-      console.log("Success 3")
-    })
-
-  }
-  else if(oldYear >1980 && movieYear<1980){
-    db3.query(sqlDelete,[movieId],(err, result)=>{
+      console.log("Success 3");
+    });
+  } else if (oldYear > 1980 && movieYear < 1980) {
+    db3.query(sqlDelete, [movieId], (err, result) => {
       if (err) console.log("Error: " + err);
-      console.log("Success 4")
-    })
-    db2.query(sqlInsert,bodyInsert,(err, result)=>{
+      console.log("Success 4");
+    });
+    db2.query(sqlInsert, bodyInsert, (err, result) => {
       if (err) console.log("Error: " + err);
-      console.log("Success 5")
-    })
-  }
-  else{
+      console.log("Success 5");
+    });
+  } else {
     if (movieYear < 1980) {
       db2.query(sqlUpdate, [body, movieId], (err, result) => {
         if (err) console.log("Error: " + err);
@@ -204,10 +220,8 @@ app.patch("/update", (req, res) => {
         console.log("Success");
       });
     }
-
   }
-  
 });
 app.listen(port, () => {
-  console.log("Running on port "+port);
+  console.log("Running on port " + port);
 });
