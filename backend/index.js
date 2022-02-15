@@ -35,10 +35,27 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.post("/readAll", (req, res) => {
   let limit = req.body.lim;
   const sqlRead = `SELECT * FROM mco2.movies ORDER BY id DESC LIMIT ${limit}`;
-  db.query(sqlRead, (err, result) => {
-    if (err) console.log("ERROR: "+err);
-    res.send(result);
-  });
+  //CENTRAL NODE IS OFFLINE
+  try {
+    console.log("CENTRAL NODE READ")
+    db.query(sqlRead, (err, result) => {
+      if (err) console.log("CENTRAL NODE ERROR: "+err);
+      res.send(result);
+    });
+    
+  } catch (error) {
+    let movies=[]
+    db2.query(sqlRead,(err,result)=>{
+      if (err) console.log("NODE 2 ERROR: "+err);
+      movies.push(result)
+      db3.query(sqlRead,(err,result)=>{
+        if (err) console.log("NODE 3 ERROR: "+err);
+        movies.push(result)
+      })
+    })
+    movies.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+    res.send(movies)
+  }
 });
 //Create
 app.post("/createNew",(req,res)=>{
@@ -48,7 +65,11 @@ app.post("/createNew",(req,res)=>{
     const sqlMaxId = "SELECT MAX(id) AS maxId FROM mco2.movies"
     //const sqlInsert = "INSERT INTO mco2.movies (id, name, year, rank) VALUES(?,?,?,?)"
     const sqlInsert = "INSERT INTO movies SET ?"
-    
+    try {
+      
+    } catch (error) {
+      
+    }
     db.query(sqlMaxId,(err, result)=>{
         if (err) console.log("Error: "+err);
         else{
