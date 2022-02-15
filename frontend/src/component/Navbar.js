@@ -1,5 +1,5 @@
 import '../styles/navbar.css'
-
+import {Link} from 'react-router-dom'
 const Navbar = () => {
 
     return ( 
@@ -15,7 +15,7 @@ const Navbar = () => {
                    <a className={`nav-link `} aria-current="page" href="/">HOME</a>
                   </li>
                   <li className="nav-item">
-                    <a href="/about"className={`nav-link`}>ABOUT</a>
+                    <Link to="/about"className={`nav-link`}>ABOUT</Link>
                   </li>
                   {/* <li className="nav-item">
                     <a className={`nav-link `}>UPDATE</a>
