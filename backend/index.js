@@ -100,8 +100,6 @@ app.post("/createNew", (req, res) => {
         });
       }
     });
-    // db.query();
-    // db.query("COMMIT");
   } catch (error) {
     db2.query(sqlMaxId, (err, result) => {
       if (err) console.log("Error: " + err);
