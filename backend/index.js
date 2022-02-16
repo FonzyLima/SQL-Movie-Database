@@ -73,7 +73,6 @@ app.post("/createNew", (req, res) => {
   const sqlInsertLog = "INSERT INTO mco2.logs_table SET ?";
   try {
     console.log("CENTRAL NODE CREATE");
-    // db.query("START TRANSACTION");
     db.query(sqlMaxId, (err, result) => {
       if (err) console.log("Error: " + err);
       else {
