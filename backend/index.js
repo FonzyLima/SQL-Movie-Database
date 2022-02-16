@@ -44,19 +44,22 @@ app.post("/readAll", (req, res) => {
       if (err) console.log("CENTRAL NODE ERROR: " + err);
       res.send(result);
     });
+    
   } catch (error) {
+  
     let movies = [];
     console.log("NOT CENTRAL NODE READ")
     db2.query(sqlRead, (err, result) => {
       if (err) console.log("NODE 2 ERROR: " + err);
-      movies.push(result);
+      movies = movies.concat(result);
+      
       db3.query(sqlRead, (err, result) => {
         if (err) console.log("NODE 3 ERROR: " + err);
-        movies.push(result);
+        movies = movies.concat(result);
+        movies.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0));
+        res.send(movies);
       });
     });
-    movies.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
-    res.send(movies);
   }
 });
 //Create
