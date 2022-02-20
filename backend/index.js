@@ -151,61 +151,39 @@ app.post("/readAll", (req, res) => {
   }
   try {
     console.log("CENTRAL NODE READ");
-    // db.getConnection((err,connection)=>{
-    //   connection.beginTransaction((err)=>{
-    //     if(err){
-    //       connection.rollback(()=>{
-    //         console.log("HUHUHUssss"+err)
-    //         connection.release()
-    //       })
-    //     }
-    //     else{
-    //       connection.query(sqlRead, (err, result) => {
-    //         if (err){
-    //           connection.rollback(()=>{
-    //             console.log("HUHUHU")
-    //             connection.release()
-    //           })
-    //         }
-    //         else{
-    //           connection.commit((err)=>{
-    //             if(err){
-    //               connection.rollback(()=>{
-    //                 console.log("HUHUHUaaa")
-    //                 connection.release();
-    //               })
-    //             }
-    //             else{
-    //               res.send(result);
-    //             }
-    //           })
-    //         }
-    //         // res.send(result);
-    //       });
-
-    //     }
-    //   })
-    // })
     db.query(sqlRead, (err, result) => {
-      if (err) console.log(err);
-      res.send(result);
+      if (err){
+        let movies = [];
+        db2.query(sqlRead, (err, result) => {
+          if (err) console.log("NODE 2 ERROR: " + err);
+          movies = movies.concat(result);
+          
+          db3.query(sqlRead, (err, result) => {
+            if (err) console.log("NODE 3 ERROR: " + err);
+            movies = movies.concat(result);
+            movies.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0));
+            res.send(movies);
+          });
+        });
+      }
+      else res.send(result);
     });
     
-  } catch (error) {
+  } catch (err) {
   
     let movies = [];
     console.log("NOT CENTRAL NODE READ")
-    db2.query(sqlRead, (err, result) => {
-      if (err) console.log("NODE 2 ERROR: " + err);
-      movies = movies.concat(result);
+    // db2.query(sqlRead, (err, result) => {
+    //   if (err) console.log("NODE 2 ERROR: " + err);
+    //   movies = movies.concat(result);
       
-      db3.query(sqlRead, (err, result) => {
-        if (err) console.log("NODE 3 ERROR: " + err);
-        movies = movies.concat(result);
-        movies.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0));
-        res.send(movies);
-      });
-    });
+    //   db3.query(sqlRead, (err, result) => {
+    //     if (err) console.log("NODE 3 ERROR: " + err);
+    //     movies = movies.concat(result);
+    //     movies.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0));
+    //     res.send(movies);
+    //   });
+    // });
   }
 });
 //Create
